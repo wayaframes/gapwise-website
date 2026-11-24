@@ -28,7 +28,8 @@
 
   function wire(ph) {
     document.addEventListener('click', function (e) {
-      var a = e.target.closest ? e.target.closest('a') : null;
+      // A booking or pay button is anything marked data-cta: a link, or the wrapper round Google's scheduling button.
+      var a = e.target.closest ? (e.target.closest('[data-cta]') || e.target.closest('a')) : null;
       if (!a) return;
       var kind = a.getAttribute('data-cta');
       var href = a.getAttribute('href') || '';

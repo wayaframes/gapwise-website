@@ -15,7 +15,7 @@
  * payment.url). Do not edit by hand.
  * ------------------------------------------------------------------ */
 var SITE_CONFIG = {
-  BOOKING_URL: 'https://wayaframes.github.io/gapwise-website/simulated.html',
+  BOOKING_URL: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true',
   PAYMENT_URL: 'https://wayaframes.github.io/gapwise-website/simulated.html'
 };
 /* ---------------------------- end CONFIG --------------------------- */

@@ -108,6 +108,7 @@
   }
   </script>
   <link rel="stylesheet" href="assets/style.css">
+  <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
   <script defer src="assets/analytics.js"></script>
 </head>
 <body>
@@ -116,8 +117,8 @@
   <header class="site-header" id="top">
     <div class="container site-header__inner">
       <a class="brand" href="#top" aria-label="Gapwise, back to the top">Gapwise</a>
-      <!-- Placeholder href: attribution.js replaces the address with BOOKING_URL and keeps utm_button. -->
-      <a class="button button--small" id="cta-nav-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=nav">Book a 15-minute call</a>
+      <!-- Booking buttons: assets/booking.js turns each .book-slot into the Google Calendar scheduling button. The link inside is the fallback if Google's script is blocked. -->
+      <span class="book-slot" id="cta-nav-book" data-cta="book" data-utm-button="nav"><a class="book-slot__fallback button button--small" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=nav">Book an appointment</a></span>
     </div>
   </header>
 
@@ -129,7 +130,7 @@
         <h1 id="hero-title">Keep your chairs full when patients cancel.</h1>
         <p class="lead">Send us the day's cancellation. We text the patients on your waiting list straight away, and the first to say yes gets the slot. The front desk does nothing else.</p>
         <div class="cta-group">
-          <a class="button button--primary" id="cta-hero-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=hero">Book a 15-minute call</a>
+          <span class="book-slot" id="cta-hero-book" data-cta="book" data-utm-button="hero"><a class="book-slot__fallback button button--primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=hero">Book an appointment</a></span>
           <a class="button button--secondary" id="cta-hero-pay" data-cta="pay" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=hero">Start now</a>
         </div>
         <p class="hero__note">$149 per practice per month. Month to month, no contract, no setup fee.</p>
@@ -156,7 +157,7 @@
             <p>You see every result. The front desk has nothing else to do.</p>
           </li>
         </ol>
-        <p class="section-cta"><a class="button button--primary" id="cta-how-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=how">Book a 15-minute call</a></p>
+        <p class="section-cta"><span class="book-slot" id="cta-how-book" data-cta="book" data-utm-button="how"><a class="book-slot__fallback button button--primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=how">Book an appointment</a></span></p>
       </div>
     </section>
 
@@ -193,7 +194,7 @@
           </ul>
           <div class="cta-group">
             <a class="button button--primary" id="cta-price-pay" data-cta="pay" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=price">Start now</a>
-            <a class="button button--secondary" id="cta-price-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=price">Book a 15-minute call</a>
+            <span class="book-slot" id="cta-price-book" data-cta="book" data-utm-button="price"><a class="book-slot__fallback button button--secondary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=price">Book an appointment</a></span>
           </div>
         </div>
       </div>
@@ -232,7 +233,7 @@
         <h2 id="final-title">Ready to try it at your practice?</h2>
         <p>Book a 15-minute call, or start now. $149 per practice per month, no contract.</p>
         <div class="cta-group">
-          <a class="button button--primary" id="cta-final-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=final_cta">Book a 15-minute call</a>
+          <span class="book-slot" id="cta-final-book" data-cta="book" data-utm-button="final_cta"><a class="book-slot__fallback button button--primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=final_cta">Book an appointment</a></span>
           <a class="button button--secondary" id="cta-final-pay" data-cta="pay" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=final_cta">Start now</a>
         </div>
       </div>
@@ -242,11 +243,13 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p class="site-footer__links"><a id="cta-footer-book" data-cta="book" href="https://wayaframes.github.io/gapwise-website/simulated.html?utm_button=footer">Book a 15-minute call</a></p>
+      <p class="site-footer__links"><span class="book-slot" id="cta-footer-book" data-cta="book" data-utm-button="footer"><a class="book-slot__fallback" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ13zI0KzS1G6w1dsvMrgZ2a-RIdBd2OoTkei-ESkUsRDbGc-vluOXRKlP6QI1Dwrj0Nc-JU0v-1?gv=true&utm_button=footer">Book an appointment</a></span></p>
       <p class="site-footer__simulated">A simulated example from the Waya Experiment Platform. Gapwise is not a real product.</p>
     </div>
   </footer>
 
+  <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+  <script src="assets/booking.js"></script>
   <script src="assets/attribution.js"></script>
 </body>
 </html>
