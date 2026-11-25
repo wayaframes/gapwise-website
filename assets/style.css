@@ -241,3 +241,13 @@ a:hover { color: var(--c-accent-hover); }
   html { scroll-behavior: auto; }
   .button { transition: none; }
 }
+
+/* Google's scheduling button, restyled by assets/booking.js to look like the page's other buttons. */
+.book-slot { display: inline-block; vertical-align: middle; }
+.book-slot > button.book-slot__button { font: inherit; font-weight: 650; line-height: 1.2; text-align: center; cursor: pointer; margin: 0; }
+.book-slot > button.button--primary { color: var(--c-on-accent); background: var(--c-accent); box-shadow: 0 2px 0 rgba(0,0,0,.12); }
+.book-slot > button.button--primary:hover { color: var(--c-on-accent); background: var(--c-accent-hover); border-color: var(--c-accent-hover); }
+.book-slot > button.button--secondary { font-weight: 600; background: var(--c-card); color: var(--c-accent); }
+.book-slot > button.button--secondary:hover { color: var(--c-accent-hover); border-color: var(--c-accent-hover); background: var(--c-tint); }
+.book-slot > button.site-footer__book { background: none; border: 0; padding: 0; min-height: 0; color: inherit; text-decoration: underline; }
+.site-footer .book-slot > button { background: none; border: 0; padding: 0; min-height: 0; color: inherit; font: inherit; text-decoration: underline; box-shadow: none; }

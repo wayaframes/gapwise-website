@@ -10,6 +10,20 @@
   var COLOR = '#039BE5';
   var LABEL = 'Book an appointment';
 
+  // Google's button is a normal <button> in this page. Give it the page's own button look (the classes of the fallback link,
+  // without Google's blue and fonts) so it matches the other buttons; its click still opens Google's booking window.
+  function restyle(slot, fallback) {
+    var tries = 0;
+    (function wait() {
+      var btn = slot.querySelector('button');
+      if (!btn) { if (++tries < 20) setTimeout(wait, 100); return; }
+      var cls = fallback ? fallback.className.replace(/book-slot__fallback/, '').trim() : 'button button--primary';
+      btn.removeAttribute('style');
+      btn.className = (cls + ' book-slot__button').trim();
+      btn.classList.remove('book-slot__fallback');   // the fallback link stays hidden; only the link's look is copied
+    })();
+  }
+
   function mount() {
     if (!window.calendar || !window.calendar.schedulingButton) return false;
     var slots = document.querySelectorAll('.book-slot');
@@ -20,6 +34,7 @@
         window.calendar.schedulingButton.load({ url: SCHEDULE_URL, color: COLOR, label: LABEL, target: fallback || slot });
         slot.setAttribute('data-ready', 'yes');
         if (fallback) fallback.style.display = 'none';
+        restyle(slot, fallback);
       })(slots[i]);
     }
     return true;
